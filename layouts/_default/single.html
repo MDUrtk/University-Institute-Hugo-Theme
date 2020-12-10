@@ -1,0 +1,31 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+
+<!-- HERO starts -->
+<section class="hero is-info is-bold is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{ .Title }}
+      </h1>
+      <!-- <h2 class="subtitle">
+        Chira International University
+      </h2> -->
+    </div>
+  </div>
+</section>
+<!-- HERO ends -->
+
+<section class="">
+  <!-- main body starts -->
+  <div class="container featured-img" style="background-image: url('/images/placeholders/1280x960.png');">
+  </div>
+  <div class="container" style="margin: 2em auto;">
+    {{ .Content }}
+
+  </div> <!-- main body container ends -->
+
+</section> <!-- main body section ends -->
+
+{{ partial "footer.html" . }}

@@ -1,0 +1,54 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+
+<!-- HERO starts -->
+<section class="hero is-info is-bold is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{ .Title }}
+      </h1>
+      <!-- <h2 class="subtitle">
+        Chira International University
+      </h2> -->
+    </div>
+  </div>
+</section>
+<!-- HERO ends -->
+
+<section class="">
+  <!-- main body starts -->
+  <div class="container" style="margin: 2em auto;">
+    <ul class="notices">
+      {{ $pag := $.Paginator}}
+      {{ range $pag.Pages }}
+      <li>
+        {{if .Params.data.externalLink}}
+          <a href="{{ .Params.data.externalLink }}">
+            <h2><i class="fas fa-external-link-alt"></i> {{ .Title }}</h2>
+          </a>
+        {{else}}
+          <a href="{{ .Permalink }}">
+            <h2>{{ .Title }}</h2>
+          </a>
+        {{end}}
+        <small><time datetime="{{  .Date }}">{{  .Date.Format "Jan 2, 2006" }}</time> | 
+          {{ range first 3 .Params.categories}}
+          <a href=""> {{ . }},</a>&nbsp;
+         {{ end }}
+        </small>
+      </li>
+
+      {{ end }}
+      <li>
+        <!-- Is comment out because is floating right :P -->
+      </li>
+    </ul>
+    {{ partial "pagination.html" . }}
+
+  </div> <!-- main body container ends -->
+
+</section> <!-- main body section ends -->
+
+{{ partial "footer.html" . }}

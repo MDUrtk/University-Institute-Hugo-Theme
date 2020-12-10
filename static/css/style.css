@@ -1,0 +1,161 @@
+/**
+ * University Institute Theme v0.0.1
+ * Copyright 2020 Chirag Sukhala
+ * Licensed under: SEE LICENSE IN https://github.com/ChiragSukhala/University-Institute-Theme/license
+ */
+
+
+html {
+    scroll-behavior: smooth;
+  }
+
+  /* Main Navigation Header bar */
+  .navbar {
+    flex-direction: column;
+  }
+
+  .logo {
+    max-height: 44px !important;
+    height: 44px;
+    padding-right: 10px;
+    float: left;
+
+  }
+
+  .logo-text {
+    float: left;
+    font-size: 7px;
+
+  }
+
+  a.logo {
+    display: block;
+    color: black;
+    text-decoration: none;
+  }
+
+  a.logo:hover {
+    text-decoration: none;
+    color: black;
+    background-color: #edd1d9;
+    border-radius: 10%;
+  }
+
+  .logo-text-college {
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .logo-text-university {
+    font-size: 9px;
+  }
+
+  /* notices list */
+  ul.notices {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  ul.notices a h2 {
+    font-weight: bold;
+    text-decoration-line: underline;
+    padding-bottom: 0.6em;
+
+  }
+
+  ul.notices li:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  ul.notices li {
+    padding: 0.60em 0em;
+    padding-top: 0.6em;
+    border-top: 1px solid;
+    border-color:
+      rgba(0, 0, 0, .1);
+    border-top-color: rgba(0, 0, 0, 0.1);
+  }
+
+  ul.notices li:last-child {
+    text-align: right;
+  }
+
+  /* notices list  style 2*/
+  ul.notices2 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* text-align: justify; */
+    max-height: 334px;
+    overflow: auto;
+
+  }
+
+  ul.notices2 a p {
+    display: inline;
+    font-weight: bold;
+    text-decoration-line: underline;
+    padding-bottom: 0.6em;
+
+  }
+
+  ul.notices2 li:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  ul.notices2 li {
+    padding: 0.60em 0em;
+    padding-top: 0.6em;
+    border-top: 1px solid;
+    border-color:
+      rgba(0, 0, 0, .1);
+    border-top-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* css animation to shake anchor Div starts */
+  div:target {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  @keyframes shake {
+
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+  /* css animation to shake anchor Div endss */
+
+  /* Page Featured Image */
+  .featured-img{
+    background-color: #cccccc;
+    
+    height: 20em;
+    
+    background-size: cover;
+    
+    background-position: center;
+  }

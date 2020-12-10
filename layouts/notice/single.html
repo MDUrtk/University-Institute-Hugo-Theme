@@ -1,0 +1,52 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+
+ <!-- HERO starts -->
+ <section class="hero is-info is-bold is-medium">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <time datetime="{{ .Date }}">{{  .Date.Format "Jan 2, 2006" }}</time> | Category: {{ (first 1 .Params.categories) }}
+      <h1 class="title">
+       {{ .Title }}
+      </h1>
+    </div>
+  </div>
+</section>
+<!-- HERO ends -->
+
+<section class="">
+  <!-- main body starts -->
+  <div class="container featured-img" style="background-image: url('/images/placeholders/1280x960.png');">
+  </div>
+  <div class="container" style="margin: 2em auto;">
+    {{ .Content }}
+
+  
+
+
+  </div> <!-- main body container ends -->
+
+  <div id="downloads" class="container">
+    
+    <button class="button is-large is-link is-light"><span>Download Notice</span> <span class="icon is-small"><i class="fas fa-download"></i></span>
+    </button>
+
+  </div>
+<hr/>
+  <div class="container">
+    
+    Category:
+    {{ range .Params.categories}}
+      <a href="/categories/{{ . }}"><span class="tag">{{ . }} </span></a>&nbsp;
+    {{ end }}
+    <br/>Tags:
+    {{ range .Params.tags}}
+      <a href="/tags/{{ . }}"><span class="tag">{{ . }} </span></a>&nbsp;
+    {{ end }}
+
+  </div>
+  <hr/>
+</section> <!-- main body section ends -->
+
+{{ partial "footer.html" . }}

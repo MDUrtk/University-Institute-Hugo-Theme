@@ -1,0 +1,215 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+  <!-- carousel starts -->
+  <section class="owl-carousel owl-theme">
+
+    <div class="hero is-success is-bold is-medium item">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            University Institute of Engineering &amp; Technology
+          </h1>
+          <h2 class="subtitle">
+            Chira International University
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero is-warning is-bold is-medium item">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            University Institute of Engineering &amp; Technology
+          </h1>
+          <h2 class="subtitle">
+            Chira International University
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero is-info is-bold is-medium item">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            University Institute of Engineering &amp; Technology
+          </h1>
+          <h2 class="subtitle">
+            Chira International University
+          </h2>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- carousel ends -->
+  <!-- main body starts -->
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <!-- Left Side Column starts -->
+        <div class="column is-two-thirds">
+          <!-- Important links container starts -->
+          <div class="">
+            <h1 class="title">
+              Important Links:
+            </h1>
+
+            <div class="columns">
+              <div class="column has-text-centered">
+                <div>
+                  <a href="#notices" class="button is-large">
+                    <span class="icon is-medium">
+                      <i class="fas fa-list"></i>
+                    </span>
+                    <span>Notices</span>
+                  </a>
+                </div>
+              </div>
+              <div class="column has-text-centered">
+                <div>
+                  <button class="button is-large">
+                    <span class="icon is-medium">
+                      <i class="fas fa-download"></i>
+                    </span>
+                    <span>Downloads</span>
+                  </button>
+                </div>
+              </div>
+              <div class="column has-text-centered">
+                <div>
+                  <a href="https://github.com/ChiragSukhala/University-Institute-Theme" class="button is-large">
+                    <span class="icon is-medium">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Edit This Site</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+          </div> <!-- Important links container ends -->
+
+          <!-- highlights container startss -->
+          <div>
+            <h1 class="title">Highlights</h1>
+            <hr />
+            <div class="columns is-multiline">
+              <!-- card columns starts -->
+        {{ $highlights := first 3 (where (where .Site.RegularPages "Type" "post") ".Params.data.isfeatured" true) }}
+	      {{ range $highlights }}
+              <div class="column is-half-tablet is-one-third-desktop">
+                <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <img src="/images/placeholders/1280x960.png" alt="Placeholder image">
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-content">
+			                  <p class="title is-4">{{ .Title }}</p>
+                      </div>
+                    </div>
+
+                    <div class="content">
+                      {{ .Description }}
+                      <br/>
+                      {{ range first 1 .Params.categories}}
+                        <a href="{{ $.Site.BaseURL }}categories/{{ lower . }}">#{{ . }}</a>
+                      {{ end }}
+                      <br>
+                      <time datetime="{{  .Date }}">{{  .Date.Format "Jan 2, 2006" }}</time>
+                      <hr />
+                      <a href="{{ .Permalink }}" class="button is-info is-fullwidth">
+                        <span><strong>Read More </strong></span>
+                        <span class="icon is-small"><i class="fas fa-link"></i></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        {{ end }}
+        {{ if lt (len $highlights) 1}}
+              <div class="column is-half-tablet is-one-third-desktop">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-content">
+                        <p class="title is-4">No Highlights</p>
+                      </div>
+                    </div>
+
+                    <div class="content">
+                      <a href="" class="button is-info is-fullwidth">
+                        <span><strong>See All Posts</strong></span>
+                        <span class="icon is-small"><i class="fas fa-link"></i></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        {{ end }}
+
+
+            </div> <!-- card columns ends -->
+
+          </div><!-- highlights container ends -->
+        </div><!-- Left Side Column ends -->
+
+        <!-- Blank Column starts -->
+        <div class="column"></div>
+        <!-- Blank Column ends -->
+
+        <!-- Right Side Column starts -->
+        <div class="column is-one-quarter">
+          <!-- Notices container -->
+          <div id="notices">
+            <h1 class="title">Active Notices</h1>
+            <hr />
+            <ul class="notices">
+              {{ $notices := where (where .Site.RegularPages "Type" "notice") ".expirydate" "=" nil }}
+              {{ $notices := $notices | union (where (where .Site.RegularPages "Type" "notice") ".ExpiryDate" ">=" .Date) }}
+
+
+              {{ range sort (first 10 $notices) ".Date" "desc" }}
+              <li>
+                {{if .Params.data.externalLink}}
+                  <a href="{{ .Params.data.externalLink }}">
+                    <h2><i class="fas fa-external-link-alt"></i> {{ .Title }}</h2>
+                  </a>
+                {{else}}
+                  <a href="{{ .Permalink }}">
+                    <h2>{{ .Title }}</h2>
+                  </a>
+                {{end}}
+                <small><time datetime="{{  .Date }}">{{  .Date.Format "Jan 2, 2006" }}</time> | 
+                  {{ range first 3 .Params.categories}}
+                  <a href=""> {{ . }},</a>&nbsp;
+                 {{ end }}
+                </small>
+              </li>
+
+              {{ end }}
+
+
+              <li>
+                <a href="{{ .Site.BaseURL }}notice" class="button is-primary">
+                  <span><strong>All Notices </strong></span>
+                  <span class="icon is-small"><i class="fas fa-link"></i></span>
+
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </div> <!-- right Side Column ends -->
+      </div> <!-- columns ends -->
+    </div> <!-- main body container ends -->
+  </section> <!-- main body section ends -->
+
+
+  {{ partial "footer.html" . }}
