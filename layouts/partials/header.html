@@ -17,7 +17,7 @@
               (A State University established under Some Act No. XXV of 1998)<br />
             </div>
           </a>
-        </div>
+        </div>  
 
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
           data-target="navbarBasicExample">
@@ -27,71 +27,29 @@
         </a>
       </div>
     </div>
+    
+    <!--Customisable Navbar-->
     <div class="container">
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item" href="{{ .Site.BaseURL }}index.html">
-            Home
-          </a>
-
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              About
-            </a>
-
-            <div class="navbar-dropdown">
-              <a href="page.html" class="navbar-item">
-                About U.I.E.T.
-              </a>
-              <a href="page.html" class="navbar-item">
-                Director's Message
-              </a>
-              <a href="page.html" class="navbar-item">
-                V.C.'s Message
-              </a>
-              <a href="page.html" class="navbar-item">
-                T.P.O.'s Message
-              </a>
-              <hr class="navbar-divider">
-              <a href="page.html" class="navbar-item">
-                About This Site
-              </a>
-            </div>
+              {{ range site.Menus.main }}
+              {{ if .HasChildren }}
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a href="#" class="navbar-link">{{ .Name }} 
+                  </a>
+                <div class="navbar-dropdown">
+                  {{ range .Children }}
+                  <a href="{{ .URL | relLangURL }}" class="navbar-item">{{ .Name }}</a>
+                  {{ end }}
+                </div>
+              </div>
+              {{ else }}
+              <a class="navbar-item"  href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+              {{ end }}
+              {{ end }}
           </div>
-
-          <a class="navbar-item">
-            Admissions
-          </a>
-
-
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              People
-            </a>
-
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
-                Officers
-              </a>
-              <a class="navbar-item">
-                Faculty
-              </a>
-              <a class="navbar-item">
-                Students
-              </a>
-              <hr class="navbar-divider">
-              <a class="navbar-item">
-                Select By Dept./Office
-              </a>
-            </div>
-          </div>
-
-          <a href="page.html" class="navbar-item">
-            Contact Us
-          </a>
-
-        </div>
-
+          <!--Navbar end-->
+          
         <div class="navbar-end">
           <div class="navbar-item">
             <p class="control has-icons-left">
@@ -104,8 +62,12 @@
         </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <!-- <hr class="navbar-divider"> -->
 
   <!-- Top navigation ends -->
+
+       
