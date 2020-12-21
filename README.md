@@ -18,3 +18,28 @@ Go to the themes folder as in the installation and run the following command.
 ```sh
 git pull
 ```
+
+### config.toml
+```toml
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "University-Institute-Hugo-Theme"
+
+[[menu.main]]
+name = "Home"
+URL = "/"
+weight = 1
+
+[[menu.main]]
+name = "Department"
+hasChildren = true
+weight = 2
+
+  [[menu.main]]
+  parent = "Department"
+  name = "CSE"
+  URL = "department/cse"
+  
+```
+
