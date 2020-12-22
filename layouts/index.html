@@ -8,11 +8,13 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            University Institute of Engineering &amp; Technology
+            {{ .Site.Params.instituteName }}
           </h1>
-          <h2 class="subtitle">
-            Chira International University
-          </h2>
+          {{ with .Site.Params.universityName }}
+            <h2 class="subtitle">
+              {{ . }}
+            </h2>
+          {{ end}}
         </div>
       </div>
     </div>
@@ -21,11 +23,13 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            University Institute of Engineering &amp; Technology
+            {{ .Site.Params.instituteName }}
           </h1>
-          <h2 class="subtitle">
-            Chira International University
-          </h2>
+          {{ with .Site.Params.universityName }}
+            <h2 class="subtitle">
+              {{ . }}
+            </h2>
+          {{ end}}
         </div>
       </div>
     </div>
@@ -34,11 +38,13 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            University Institute of Engineering &amp; Technology
+            {{ .Site.Params.instituteName }}
           </h1>
-          <h2 class="subtitle">
-            Chira International University
-          </h2>
+          {{ with .Site.Params.universityName }}
+            <h2 class="subtitle">
+              {{ . }}
+            </h2>
+          {{ end}}
         </div>
       </div>
     </div>

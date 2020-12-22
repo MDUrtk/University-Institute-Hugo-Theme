@@ -5,16 +5,25 @@
       <div class="navbar-brand">
         <div id="logo-area">
           <a class="logo navbar-item" href="{{ .Site.BaseURL }}">
-            <img src="{{ .Site.BaseURL }}logo.png" class="logo" />
+            <img src="{{ .Site.BaseURL }}{{ .Site.Params.logoImg }}" class="logo" />
             
 
             <div class="logo-text">
-              <span class="logo-text-college">University Institute of Engineering &amp; Technology</span>
-              <!--  <sup>AICTE
-                Approved</sup> --><br />
-              <span class="logo-text-university">Chira International University</span> <sup>(Accredited 'A++' by
-                You)</sup><br />
-              (A State University established under Some Act No. XXV of 1998)<br />
+              <span class="logo-text-college">{{ .Site.Params.instituteName }}</span>
+              {{ with .Site.Params.instituteAccredationSuperText}}
+               <sup>{{ . }}</sup>
+               {{ end }}
+               {{ with .Site.Params.universityName }}
+                <br />
+                <span class="logo-text-university">{{ . }}</span>
+                {{ with $.Site.Params.universityAccredationSuperText}}
+                   <sup>{{ . }}</sup>
+                {{end}}
+                {{ with $.Site.Params.universityUnderText}}
+                <br />
+                {{ . }}
+                {{ end }}
+              {{ end }}
             </div>
           </a>
         </div>  
@@ -32,20 +41,20 @@
     <div class="container">
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-              {{ range site.Menus.main }}
-              {{ if .HasChildren }}
-              <div class="navbar-item has-dropdown is-hoverable">
-                <a href="#" class="navbar-link">{{ .Name }} 
-                  </a>
-                <div class="navbar-dropdown">
-                  {{ range .Children }}
-                  <a href="{{ .URL | relLangURL }}" class="navbar-item">{{ .Name }}</a>
-                  {{ end }}
+              {{ range .Site.Menus.main }}
+                {{ if .HasChildren }}
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a href="#" class="navbar-link">{{ .Name }} 
+                    </a>
+                  <div class="navbar-dropdown">
+                    {{ range .Children }}
+                    <a href="{{ .URL | relLangURL }}" class="navbar-item">{{ .Name }}</a>
+                    {{ end }}
+                  </div>
                 </div>
-              </div>
-              {{ else }}
-              <a class="navbar-item"  href="{{ .URL | relLangURL }}">{{ .Name }}</a>
-              {{ end }}
+                {{ else }}
+                <a class="navbar-item"  href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                {{ end }}
               {{ end }}
           </div>
           <!--Navbar end-->

@@ -39,15 +39,20 @@
           <h3>Contact Us:</h3>
           <div class="columns">
             <div class="column">
-              University Institute of Engineering & Technology,<br />
-              Chira International University,<br />
-              City 12345,<br />
-              State, Contry
+              {{ range .Site.Params.addressLines}}
+                {{ . }},<br/>
+              {{ end }}
             </div>
             <div class="column">
-              +xx-xxxx-xxx-xxx (Office)<br />
-              +xx-xxxx-xxx-xxx (Director)<br /><br />
-              <a href="mailto:Institute@University.ac.in">Institute@University.ac.in</a>
+              {{ range .Site.Params.telephones}}
+                {{range .}}
+                {{ . }}
+                {{ end}}<br/>
+              {{ end }}
+             <br />
+              {{ range .Site.Params.emails}}
+              <a href="mailto:{{ index . 0 }}">{{ index . 0 }}</a>{{ with index . 1}} {{ . }}{{end}}<br/>
+              {{ end }}
             </div>
           </div>
           
@@ -59,7 +64,7 @@
 <hr/>
       <div class="has-text-centered">
         <p>
-          Copyright © 2020 University Institute. All right Reserved
+          Copyright &copy; {{ now.Format "2006"}} {{ .Site.Params.instituteName }}{{ with .Site.Params.universityName }}, {{.}}{{end}}. All right Reserved
         </p>
         <!-- the credits below should not be removed or eddited, Thanks :) -->
         <p>
