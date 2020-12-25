@@ -1,8 +1,9 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-profilepic: ""
-email: ""
-contactno: ""
-department: ""
-designation: ""
+data:
+    email: ""
+    contactno: ""
+    profilepic: ""
+    department: ""
+    designation: ""
 ---

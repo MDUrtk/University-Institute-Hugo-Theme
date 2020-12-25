@@ -19,13 +19,13 @@
   <!-- main body starts -->
   <div class="container" style="margin: 2em auto;">
     <ul class="faculty">
-      {{ $pag := .Paginator}}
+      {{ $pag := .Data }}
       {{ range $pag.Pages }}
       <li>
           <a href="{{ .Permalink }}">
-            <h2> {{ .Params.title }}</h2>
+            <h2> {{ .Title }}</h2>
           </a>
-          <h1>{{ .Params.designation }}</h1>
+          <h1>{{ .Params.data.designation }}</h1>
           <hr>
       </li>
       {{end}}
