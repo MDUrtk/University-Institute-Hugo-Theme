@@ -27,7 +27,9 @@
           <li>
               <a href="{{ .Permalink }}">
                 <h3> {{ .Title }}</h3>
+                
               </a>
+              <p>{{ .Params.data.designation}}</p>
           </li>
           {{end}}
         </ul>

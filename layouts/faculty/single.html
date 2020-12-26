@@ -15,21 +15,51 @@
 <!-- HERO ends -->
         
     <!-- header-section-ends -->
-    <section class="">
-        <div class="container has-text-centered">
-          <div class="col-md-8">
-                <img src="{{  .Params.data.profilepic }}" alt="Faculty Image"
-                  style="width: 175px; height: 200px; border: 2px solid black"/>
-                <label style="width: 80%; margin-left: 7px"></label>
-                <h5>{{ .Params.data.department }}</h5>
-                <p>{{ .Params.data.designation }}</p>
-                <h5>Contact Details</h5>
-                <p>{{  .Params.data.email }}</p>
-                <p>{{  .Params.data.contactno }}</p>
+    <section class="container">
+          <div class="columns mt-1">
+            <div class="column">
+              <figure class="image is-128x128">
+                <img class="is-rounded" src="{{ .Params.data.profilePicture }}" alt="{{ .Title}}">
+              </figure>
+      
+            </div>
+            <div class="column is-11">
+              <p class="title is-4">{{ .Title}}</p>
+              <p class="subtitle is-6">
+                {{range .Params.data.designations}}
+                  {{ index . 0 }}, {{ index . 1 }}
+                  <br/>
+                {{end}}
+              </p><br/>
+              <p class="is-6"><b>Contact Details:</b><br/>
+                {{range .Params.data.contacts.phones}}
+                  {{ index . 0 }}{{ with index . 1}} ({{ . }}){{end}},
+                  <br/>
+                {{end}}<br/>
 
-          </div>
+                {{range .Params.data.contacts.emails}}
+                <a href="mailto:{{ index . 0 }}">{{ index . 0 }}</a>{{ with index . 1}} ({{ . }}){{end}})
+                  <br/>
+                {{end}}<br/>
+
+                {{range .Params.data.contacts.links}}
+                <a href="{{. }}">{{ . }}</a>,
+                  <br/>
+                {{end}}<br/>
           
+              </p><br/>
+              <p class="is-6"><b>Academics Details:</b><br/>
+                {{range .Params.data.designations}}
+                  {{ index . 0 }} ({{ index . 1 }}), {{ index . 2 }}
+                  <br/>
+                {{end}}
+              </p>
+              <hr/>
+              {{ .Content}}
+      
+            </div>
           </div>
+          <hr/>
         </section>
 
 

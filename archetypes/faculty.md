@@ -1,9 +1,27 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+Description: ""
+draft: false
 data:
-    email: ""
-    contactno: ""
-    profilepic: ""
-    department: ""
-    designation: ""
+    profilePicture: ""
+    designations: [
+        ["", ""]
+    ]
+
+    acadmics:   [
+        ["", "", ""]
+    ]
+
+    contacts: 
+        emails: [
+            ["",""]
+        ]
+        phones: [
+            ["",""]
+        ]
+        links:  [
+            ""
+        ]
+    
 ---
