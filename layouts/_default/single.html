@@ -17,11 +17,14 @@
 </section>
 <!-- HERO ends -->
 
-<section class="">
+
+<!-- main body starts--> 
+<section class="content container">
   <!-- main body starts -->
-  <div class="container featured-img" style="background-image: url('/images/placeholders/1280x960.png');">
+  <div class="container featured-img" style="background-image: url('{{ .Params.image }}');">
   </div>
-  <div class="container" style="margin: 2em auto;">
+
+  <div class="" style="margin: 2em auto;">
     {{ .Content }}
 
   </div> <!-- main body container ends -->
