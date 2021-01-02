@@ -21,8 +21,11 @@
 <!-- main body starts--> 
 <section class="content container">
   <!-- main body starts -->
+  {{if .Params.image}}
   <div class="container featured-img" style="background-image: url('{{ .Params.image }}');">
   </div>
+  {{else}} 
+  {{end}}
 
   <div class="" style="margin: 2em auto;">
     {{ .Content }}

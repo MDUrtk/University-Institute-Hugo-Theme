@@ -17,8 +17,11 @@
 
 <section class="">
   <!-- main body starts -->
-  <div class="container featured-img" style="background-image: url('/images/placeholders/1280x960.png');">
+  {{if .Params.image}}
+  <div class="container featured-img" style="background-image: url('{{ .Params.image }}');">
   </div>
+  {{else}}
+  {{end}}
   <div class="container" style="margin: 2em auto;">
     {{ .Content }}
 

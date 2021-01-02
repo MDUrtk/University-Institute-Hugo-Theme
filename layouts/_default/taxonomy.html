@@ -1,0 +1,26 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+<section class="hero is-info is-bold is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          {{ .Title }}
+        </h1>
+        <!-- <h2 class="subtitle">
+          Chira International University
+        </h2> -->
+      </div>
+    </div>
+  </section>
+
+<section class="content container">
+    <div class="" style="margin: 2em auto;">
+    {{ range .Pages }}
+    <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+    {{ end }}
+    </div>
+</section>
+
+
+{{ partial "footer.html" . }}

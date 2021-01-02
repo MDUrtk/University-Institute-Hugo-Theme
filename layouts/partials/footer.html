@@ -9,28 +9,14 @@
         <div class="column is-one-fifth">
           <h3>Important Links:</h3>
           <ul>
+            {{ range .Site.Params.footerImportantLinks}}
             <li>
-              <a href="#">
-                University Website
+              <a href="{{ index . 0 }}">
+                {{ index . 1 }}
               </a>
             </li>
+            {{end}}
 
-            <li>
-              <a href="#">
-                Result Portal
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Privacy Polices
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Terms
-              </a>
-            </li>
           </ul>
         </div><!-- footer Column 1 ends -->
 

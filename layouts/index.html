@@ -148,6 +148,10 @@
                         <p class="title is-4">No Highlights</p>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            {{else}}
 
                     <div class="content">
                       <a href="" class="button is-info is-fullwidth">
@@ -155,9 +159,6 @@
                         <span class="icon is-small"><i class="fas fa-link"></i></span>
                       </a>
                     </div>
-                  </div>
-                </div>
-              </div>
         {{ end }}
 
 
@@ -184,7 +185,7 @@
               {{ range sort (first 10 $notices) ".Date" "desc" }}
               <li>
                 {{if .Params.data.externalLink}}
-                  <a href="{{ .Params.data.externalLink }}">
+                  <a href="{{ .Params.data.externalLink }}" target="_blank">
                     <h2><i class="fas fa-external-link-alt"></i> {{ .Title }}</h2>
                   </a>
                 {{else}}
@@ -194,7 +195,7 @@
                 {{end}}
                 <small><time datetime="{{  .Date }}">{{  .Date.Format "Jan 2, 2006" }}</time> | 
                   {{ range first 3 .Params.categories}}
-                  <a href=""> {{ . }},</a>&nbsp;
+                  <a href="/categories/{{ . }}"> {{ . }} |</a>&nbsp;
                  {{ end }}
                 </small>
               </li>
