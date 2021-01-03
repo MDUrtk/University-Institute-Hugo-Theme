@@ -7,19 +7,18 @@
         <h1 class="title">
           {{ .Title }}
         </h1>
-        <!-- <h2 class="subtitle">
-          Chira International University
-        </h2> -->
       </div>
     </div>
   </section>
 
 <section class="content container">
-    <div class="" style="margin: 2em auto;">
-    {{ range .Pages }}
-    <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+    <div class="mt-6">
+    {{ range $.Paginator.Pages }}
+      <a href="{{ .Permalink }}"><h4>{{ .Title }}</h4></a>
+      <hr/>
     {{ end }}
     </div>
+    {{ partial "pagination.html" . }}
 </section>
 
 
