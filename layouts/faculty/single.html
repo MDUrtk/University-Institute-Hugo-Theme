@@ -19,18 +19,20 @@
           <div class="columns mt-1">
             <div class="column">
               <figure class="image is-128x128">
-                <img class="is-rounded" src="{{ .Params.data.profilePicture }}" alt="{{ .Title}}">
+                <img class="is-rounded" src="{{ if (.Params.data.profilePicture)}}{{ .Params.data.profilePicture }}{{else }}/images/person.png{{end}}" alt="{{ .Title}}">
               </figure>
       
             </div>
             <div class="column is-11">
               <p class="title is-4">{{ .Title}}</p>
-              <p class="subtitle is-6">
+              {{ if .Params.data.designations }}
+                <p class="subtitle is-6"></p>
                 {{range .Params.data.designations}}
                   {{ index . 0 }}, {{ index . 1 }}
                   <br/>
                 {{end}}
-              </p><br/>
+                </p><br/>
+              {{end}}
               <p class="is-6"><b>Contact Details:</b><br/>
                 {{range .Params.data.contacts.phones}}
                   {{ index . 0 }}{{ with index . 1}} ({{ . }}){{end}},
@@ -48,12 +50,14 @@
                 {{end}}<br/>
           
               </p><br/>
-              <p class="is-6"><b>Academics Details:</b><br/>
-                {{range .Params.data.designations}}
-                  {{ index . 0 }} ({{ index . 1 }}), {{ index . 2 }}
-                  <br/>
-                {{end}}
-              </p>
+              {{ if .Params.data.acadmics }}
+                <p class="is-6"><b>Academics Details:</b><br/>
+                  {{range .Params.data.acadmics}}
+                    {{ index . 0 }} ({{ index . 1 }}), {{ index . 2 }}
+                    <br/>
+                  {{end}}
+                </p>
+              {{ end }}
               <hr/>
               {{ .Content}}
       
