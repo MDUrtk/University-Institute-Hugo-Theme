@@ -1,8 +1,25 @@
-<!DOCTYPE html>
-<html>
-<body>
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+<!-- HERO starts -->
+<section class="hero is-info is-bold is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{.Title }}
+      </h1>
+      
+    </div>
+  </div>
+</section>
+<!-- HERO ends -->
+<section class="">
+  <!-- main body starts -->
+  <div class="container" style="margin: 2em auto;">
   {{ range .Data.Pages }}
     <h1><a href={{ .Permalink }}>{{ .Title }}</a></h1>
   {{ end }}
-</body>
-</html>
+  </div>
+  </section>
+
+{{ partial "footer.html" . }}

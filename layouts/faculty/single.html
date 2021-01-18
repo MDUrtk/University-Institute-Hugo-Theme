@@ -1,0 +1,70 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+
+ <!-- HERO starts -->
+ <section class="hero is-info is-bold is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+       {{ .Title }}
+      </h1>
+    </div>
+  </div>
+</section>
+<!-- HERO ends -->
+        
+    <!-- header-section-ends -->
+    <section class="content container">
+          <div class="columns mt-1">
+            <div class="column">
+              <figure class="image is-128x128">
+                <img class="is-rounded" src="{{ if (.Params.data.profilePicture)}}{{ .Params.data.profilePicture }}{{else }}/images/person.png{{end}}" alt="{{ .Title}}">
+              </figure>
+      
+            </div>
+            <div class="column is-11">
+              <p class="title is-4">{{ .Title}}</p>
+              {{ if .Params.data.designations }}
+                <p class="subtitle is-6"></p>
+                {{range .Params.data.designations}}
+                  {{ index . 0 }}, {{ index . 1 }}
+                  <br/>
+                {{end}}
+                </p><br/>
+              {{end}}
+              <p class="is-6"><b>Contact Details:</b><br/>
+                {{range .Params.data.contacts.phones}}
+                  {{ index . 0 }}{{ with index . 1}} ({{ . }}){{end}},
+                  <br/>
+                {{end}}<br/>
+
+                {{range .Params.data.contacts.emails}}
+                <a href="mailto:{{ index . 0 }}">{{ index . 0 }}</a>{{ with index . 1}} ({{ . }}){{end}}
+                  <br/>
+                {{end}}<br/>
+
+                {{range .Params.data.contacts.links}}
+                <a href="{{. }}">{{ . }}</a>,
+                  <br/>
+                {{end}}<br/>
+          
+              </p><br/>
+              {{ if .Params.data.acadmics }}
+                <p class="is-6"><b>Academics Details:</b><br/>
+                  {{range .Params.data.acadmics}}
+                    {{ index . 0 }} ({{ index . 1 }}), {{ index . 2 }}
+                    <br/>
+                  {{end}}
+                </p>
+              {{ end }}
+              <hr/>
+              {{ .Content}}
+      
+            </div>
+          </div>
+          <hr/>
+        </section>
+
+
+  {{ partial "footer.html" . }}

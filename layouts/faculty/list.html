@@ -1,0 +1,50 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+
+<!-- HERO starts -->
+<section class="hero is-info is-bold is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Faculty
+      </h1>
+      
+    </div>
+  </div>
+</section>
+<!-- HERO ends -->
+
+<section class="">
+  <!-- main body starts -->
+  <div class="container mt-6">
+    <ul class="faculty">
+
+      {{ range .Sections }}
+      <li><a href="{{ .Permalink }}"><h2>{{.Title}}:</h2></a></li>
+        <ul>
+          {{range .Pages}}
+          <li>
+              <a href="{{ .Permalink }}">
+                <h3> {{ .Title }}</h3>
+                
+              </a>
+              <p>{{ .Params.data.designation}}</p>
+          </li>
+          {{end}}
+        </ul>
+        <hr/>
+      {{end}}
+      {{ range .RegularPages }}
+      <li><a href="{{ .Permalink }}"><h2>{{.Title}}</h2></a></li>
+        <hr/>
+      {{end}}
+      
+    </ul>
+
+
+  </div> <!-- main body container ends -->
+
+</section> <!-- main body section ends -->
+
+{{ partial "footer.html" . }}

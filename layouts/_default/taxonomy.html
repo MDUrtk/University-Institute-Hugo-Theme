@@ -1,0 +1,25 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+<section class="hero is-info is-bold is-small">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          {{ .Title }}
+        </h1>
+      </div>
+    </div>
+  </section>
+
+<section class="content container">
+    <div class="mt-6">
+    {{ range $.Paginator.Pages }}
+      <a href="{{ .Permalink }}"><h4>{{ .Title }}</h4></a>
+      <hr/>
+    {{ end }}
+    </div>
+    {{ partial "pagination.html" . }}
+</section>
+
+
+{{ partial "footer.html" . }}
