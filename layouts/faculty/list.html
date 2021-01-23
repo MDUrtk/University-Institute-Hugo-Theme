@@ -35,7 +35,7 @@
         </ul>
         <hr/>
       {{end}}
-      {{ range .RegularPages }}
+      {{ range .RegularPagesRecursive }}
       <li><a href="{{ .Permalink }}"><h2>{{.Title}}</h2></a></li>
         <hr/>
       {{end}}
