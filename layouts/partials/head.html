@@ -10,4 +10,7 @@
   <link rel="stylesheet" href="{{ .Site.BaseURL }}css/owl2/owl.carousel.min.css">
   <link rel="stylesheet" href="{{ .Site.BaseURL }}css/owl2/owl.theme.default.min.css">
   <link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css">
+  {{ with .Site.Params.headScripts}}
+    {{ . }}
+  {{ end }}
 </head>

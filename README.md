@@ -29,7 +29,9 @@ theme = "University-Institute-Hugo-Theme"
 
 #theme Specific variables:
 [params]
-##appears on header and throughout rhe site
+#custom head scripts
+headScripts = ''
+##appears on header and throughout the site
 logoImg                         =   "logo.png"
 instituteName                   =   "University Institute of Engineering & Technology"
 instituteAccredationSuperText   =   "AICTE Approved"
